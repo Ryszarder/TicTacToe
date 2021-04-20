@@ -17,16 +17,20 @@ int main()
 		system("cls");
 		Print_board(board);
 		
-		
-		int row;
-		std::cout << "enter in row" << std::endl;
-		std::cin >> row;
+		if (true)
+		{
+			int row;
+			std::cout << "enter in row" << std::endl;
+			std::cin >> row;
 
-		int col;
-		std::cout << "enter in col" << std::endl;
-		std::cin >> col;
-		
-		board[row][col] = {'X'};
+			int col;
+			std::cout << "enter in col" << std::endl;
+			std::cin >> col;
+
+			board[row][col] = {'X'};
+		}
+
+
 
 		getchar();
 	}
