@@ -7,18 +7,38 @@ int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	/*system("cls");*/
-
-	char board[3][3];
-	Print_board(board);
 	
 
+	char board[3][3];
+	/*Print_board(board);*/
+	
+	while (true)
+	{
+		system("cls");
+		Print_board(board);
+		
+		
+		int row;
+		std::cout << "enter in row" << std::endl;
+		std::cin >> row;
+
+		int col;
+		std::cout << "enter in col" << std::endl;
+		std::cin >> col;
+		
+		board[row][col] = {'X'};
+
+		getchar();
+	}
 
 
 	getchar();
 
 	return 0;
 }
+
+
+
 
 void Print_board(char board[3][3])
 {
