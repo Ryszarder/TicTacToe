@@ -28,6 +28,8 @@ int main()
 			std::cin >> col;
 
 			board[row][col] = {'X'};
+			delete board[row];
+			delete board[col];
 		}
 
 
