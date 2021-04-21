@@ -7,16 +7,16 @@ int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-	
+
 
 	char board[3][3];
 	/*Print_board(board);*/
-	
+
 	while (true)
 	{
 		system("cls");
 		Print_board(board);
-		
+
 		int row = 0;
 		while (1)
 		{
@@ -28,10 +28,10 @@ int main()
 				std::cout << "try again" << std::endl;
 		}
 
-		int col;
+		int col = 0;
 		while (1)
 		{
-			
+
 			std::cout << "enter in col" << std::endl;
 			std::cin >> col;
 			if (col <= 2)
@@ -44,16 +44,11 @@ int main()
 		{
 			board[row][col] = { 'X' };
 		}
-		else if (board[row][col] != 'X')
+		if (board[row][col] == 'X')
 		{
 			std::cout << "spot takening try again" << std::endl;
-			getchar();
 		}
-		else
-		{
-			getchar();
-		}
-		
+
 		//std::cin.ignore();
 		//std::cin.clear();
 
