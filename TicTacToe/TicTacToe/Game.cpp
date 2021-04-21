@@ -40,6 +40,8 @@ int main()
 				std::cout << "try again" << std::endl;
 		}
 
+		//make a while loop that has the if statements to place down the symbol and 
+		//break the loop if wrong as well when right but place the the symbol if right
 		if (board[row][col] != 'X')
 		{
 			board[row][col] = { 'X' };
