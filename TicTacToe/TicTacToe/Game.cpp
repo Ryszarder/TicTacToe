@@ -17,33 +17,53 @@ int main()
 		system("cls");
 		Print_board(board);
 		
-		if (true)
+		int row = 0;
+		while (1)
 		{
-			int row;
 			std::cout << "enter in row" << std::endl;
 			std::cin >> row;
-
-			int col;
-			std::cout << "enter in col" << std::endl;
-			std::cin >> col;
-
-			board[row][col] = {'X'};
-			delete board[row];
-			delete board[col];
+			if (row <= 2)
+				break;
+			else
+				std::cout << "try again" << std::endl;
 		}
 
+		int col;
+		while (1)
+		{
+			
+			std::cout << "enter in col" << std::endl;
+			std::cin >> col;
+			if (col <= 2)
+				break;
+			else
+				std::cout << "try again" << std::endl;
+		}
 
+		if (board[row][col] != 'X')
+		{
+			board[row][col] = { 'X' };
+		}
+		else if (board[row][col] != 'X')
+		{
+			std::cout << "spot takening try again" << std::endl;
+			getchar();
+		}
+		else
+		{
+			getchar();
+		}
+		
+		//std::cin.ignore();
+		//std::cin.clear();
 
 		getchar();
 	}
-
 
 	getchar();
 
 	return 0;
 }
-
-
 
 
 void Print_board(char board[3][3])
