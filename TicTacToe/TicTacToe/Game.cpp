@@ -107,11 +107,11 @@ int main()
 
 			//make a while loop that has the if statements to place down the symbol and 
 			//break the loop if wrong as well when right but place the the symbol if right
-			if (board[row][col] != 'Y')
+			if (board[row][col] != 'O')
 			{
-				board[row][col] = { 'Y' };
+				board[row][col] = { 'O' };
 			}
-			else if (board[row][col] == 'Y')
+			else if (board[row][col] == 'O')
 			{
 				std::cout << "spot takening try again" << std::endl;
 			}
