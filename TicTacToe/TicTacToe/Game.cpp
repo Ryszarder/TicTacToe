@@ -10,6 +10,8 @@ int main()
 
 
 	char board[3][3];
+	bool x = true;
+	bool y = false;
 	/*Print_board(board);*/
 
 	while (true)
@@ -17,47 +19,90 @@ int main()
 		system("cls");
 		Print_board(board);
 
-		int row = 0;
-		while (1)
+		if (x == true)
 		{
-			std::cout << "enter in row" << std::endl;
-			std::cin >> row;
-			if (row <= 2)
-				break;
-			else
-				std::cout << "try again" << std::endl;
+			int row = 0;
+			int col = 0;
+
+			while (1)
+			{
+				std::cout << "enter in row" << std::endl;
+				std::cin >> row;
+				if (row <= 2)
+					break;
+				else
+					std::cout << "try again" << std::endl;
+			}
+			while (1)
+			{
+
+				std::cout << "enter in col" << std::endl;
+				std::cin >> col;
+				if (col <= 2)
+					break;
+				else
+					std::cout << "try again" << std::endl;
+			}
+
+			//make a while loop that has the if statements to place down the symbol and 
+			//break the loop if wrong as well when right but place the the symbol if right
+			if (board[row][col] != 'X')
+			{
+				board[row][col] = { 'X' };
+			}
+			if (board[row][col] == 'X' | board[row][col] == 'X')
+			{
+				std::cout << "spot takening try again" << std::endl;
+			}
+
+			x = false;
+			y = true;
 		}
 
-		int col = 0;
-		while (1)
+		else if (y == true)
 		{
+			int row = 0;
+			int col = 0;
 
-			std::cout << "enter in col" << std::endl;
-			std::cin >> col;
-			if (col <= 2)
-				break;
-			else
-				std::cout << "try again" << std::endl;
+			while (1)
+			{
+				std::cout << "enter in row" << std::endl;
+				std::cin >> row;
+				if (row <= 2)
+					break;
+				else
+					std::cout << "try again" << std::endl;
+			}
+
+
+			while (1)
+			{
+
+				std::cout << "enter in col" << std::endl;
+				std::cin >> col;
+				if (col <= 2)
+					break;
+				else
+					std::cout << "try again" << std::endl;
+			}
+
+			//make a while loop that has the if statements to place down the symbol and 
+			//break the loop if wrong as well when right but place the the symbol if right
+			if (board[row][col] != 'Y')
+			{
+				board[row][col] = { 'Y' };
+			}
+			if (board[row][col] == 'Y')
+			{
+				std::cout << "spot takening try again" << std::endl;
+			}
+			x = true;
+			y = false;
 		}
 
-		//make a while loop that has the if statements to place down the symbol and 
-		//break the loop if wrong as well when right but place the the symbol if right
-		if (board[row][col] != 'X')
-		{
-			board[row][col] = { 'X' };
-		}
-		if (board[row][col] == 'X')
-		{
-			std::cout << "spot takening try again" << std::endl;
-		}
 
-		//std::cin.ignore();
-		//std::cin.clear();
-
-		getchar();
 	}
 
-	getchar();
 
 	return 0;
 }
