@@ -7,12 +7,11 @@ int main()
 {
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
-
-
 	char board[3][3];
+	char restart;
 	bool x = true;
 	bool y = false;
-	/*Print_board(board);*/
+
 
 	while (true)
 	{
@@ -50,10 +49,30 @@ int main()
 			{
 				board[row][col] = { 'X' };
 			}
-			if (board[row][col] == 'X' | board[row][col] == 'X')
+			else if (board[row][col] == 'X')
 			{
 				std::cout << "spot takening try again" << std::endl;
 			}
+
+			char winner = 'X';
+
+			// Checks for horizontal:
+			for (int i = 0; i < 3; i++)
+				if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
+					winner = board[i][0];
+
+			// Checks for vertical:
+			for (int i = 0; i < 3; i++)
+				if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
+					winner = board[0][1];
+
+			// Checks for diagnol:
+			if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
+				(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
+				winner = board[1][1];
+
+			std::cout << "Winner is " << winner << std::endl;
+			
 
 			x = false;
 			y = true;
@@ -92,17 +111,33 @@ int main()
 			{
 				board[row][col] = { 'Y' };
 			}
-			if (board[row][col] == 'Y')
+			else if (board[row][col] == 'Y')
 			{
 				std::cout << "spot takening try again" << std::endl;
 			}
+
+			char winner = 'Y';
+
+			// Checks for horizontal:
+			for (int i = 0; i < 3; i++)
+				if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
+					winner = board[i][0];
+
+			// Checks for vertical:
+			for (int i = 0; i < 3; i++)
+				if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
+					winner = board[0][1];
+
+			// Checks for diagnol:
+			if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
+				(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
+				winner = board[1][1];
+
+			std::cout << "Winner is " << winner << std::endl;
 			x = true;
 			y = false;
 		}
-
-
 	}
-
 
 	return 0;
 }
