@@ -9,10 +9,18 @@ int main()
 	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	char board[3][3];
+	board[0][0] = 'A';
+	board[0][1] = 'B';
+	board[0][2] = 'C';
+	board[1][0] = 'D';
+	board[1][1] = 'E';
+	board[1][2] = 'F';
+	board[2][0] = 'G';
+	board[2][1] = 'H';
+	board[2][2] = 'I';
 	char restart;
 	bool x = true;
 	bool y = false;
-
 
 	while (true)
 	{
@@ -160,6 +168,8 @@ char Winner(char board[3][3], char& winner)
 		if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
 		{	
 			winner = board[0][1];
+			std::cout << "Winner is " << winner << std::endl;
+			exit(0);
 		}
 
 	// Checks for diagnol:
@@ -168,8 +178,6 @@ char Winner(char board[3][3], char& winner)
 	{
 		winner = board[1][1];
 	}
-
-	std::cout << "Winner is " << winner << std::endl;
 
 	return 0;
 }
