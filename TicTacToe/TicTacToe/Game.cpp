@@ -2,6 +2,7 @@
 #include <iostream>
 
 void Print_board(char board[3][3]);
+char Winner(char board[3][3], char& winner);
 
 int main()
 {
@@ -57,26 +58,18 @@ int main()
 					std::cout << "spot takening try again" << std::endl;
 				}
 			}
-			
-			char winner = 'X';
-
-			// Checks for horizontal:
-			for (int i = 0; i < 3; i++)
-				if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
-					winner = board[i][0];
-
-			// Checks for vertical:
-			for (int i = 0; i < 3; i++)
-				if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
-					winner = board[0][1];
-
-			// Checks for diagnol:
-			if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
-				(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
-				winner = board[1][1];
-
-			std::cout << "Winner is " << winner << std::endl;
-			
+			while (true)
+			{
+				char winner = 'X';
+				Winner(board, winner);
+				if (winner == 'W')
+				{
+					std::cout << "Winner is " << winner << std::endl;
+					exit(0);
+				}
+				else
+					break;
+			}
 			x = false;
 			y = true;
 		}
@@ -121,24 +114,18 @@ int main()
 				}
 			}
 
-			char winner = 'O';
-
-			// Checks for horizontal:
-			for (int i = 0; i < 3; i++)
-				if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
-					winner = board[i][0];
-
-			// Checks for vertical:
-			for (int i = 0; i < 3; i++)
-				if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
-					winner = board[0][1];
-
-			// Checks for diagnol:
-			if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
-				(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
-				winner = board[1][1];
-
-			std::cout << "Winner is " << winner << std::endl;
+			while (true)
+			{
+				char winner = 'O';
+				Winner(board, winner);
+				if (winner == 'W')
+				{
+					std::cout << "Winner is " << winner << std::endl;
+					exit(0);
+				}
+				else
+					break;
+			}
 			x = true;
 			y = false;
 		}
@@ -159,4 +146,30 @@ void Print_board(char board[3][3])
 	std::cout << "\n------------------\n";
 }
 
+char Winner(char board[3][3], char& winner)
+{
+	// Checks for horizontal:
+	for (int i = 0; i < 2; i++)
+		if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
+		{
+			winner = board[i][0];
+		}
 
+	// Checks for vertical:
+	for (int i = 0; i < 2; i++)
+		if (board[0][i] == board[1][i] && board[1][i] == board[2][i])
+		{	
+			winner = board[0][1];
+		}
+
+	// Checks for diagnol:
+	if ((board[0][0] == board[1][1] && board[1][1] == board[2][2]) ||
+		(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
+	{
+		winner = board[1][1];
+	}
+
+	std::cout << "Winner is " << winner << std::endl;
+
+	return 0;
+}
