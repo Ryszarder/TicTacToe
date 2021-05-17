@@ -172,7 +172,6 @@ int main()
 			o = false;
 		}
 	}
-
 	return 0;
 }
 
