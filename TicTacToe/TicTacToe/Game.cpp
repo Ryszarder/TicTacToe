@@ -70,13 +70,7 @@ int main()
 			{
 				char winner = 'X';
 				Winner(board, winner);
-				if (winner == 'W')
-				{
-					std::cout << "Winner is " << winner << std::endl;
-					exit(0);
-				}
-				else
-					break;
+				break;
 			}
 			x = false;
 			y = true;
@@ -126,13 +120,7 @@ int main()
 			{
 				char winner = 'O';
 				Winner(board, winner);
-				if (winner == 'W')
-				{
-					std::cout << "Winner is " << winner << std::endl;
-					exit(0);
-				}
-				else
-					break;
+				break;
 			}
 			x = true;
 			y = false;
@@ -161,6 +149,8 @@ char Winner(char board[3][3], char& winner)
 		if (board[i][0] == board[i][1] && board[i][1] == board[i][2])
 		{
 			winner = board[i][0];
+			std::cout << "Winner is " << winner << std::endl;
+			exit(0);
 		}
 
 	// Checks for vertical:
@@ -177,6 +167,8 @@ char Winner(char board[3][3], char& winner)
 		(board[0][2] == board[1][1] && board[1][1] == board[2][0]))
 	{
 		winner = board[1][1];
+		std::cout << "Winner is " << winner << std::endl;
+		exit(0);
 	}
 
 	return 0;
