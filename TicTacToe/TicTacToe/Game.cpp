@@ -20,6 +20,7 @@ int main()
 
 		if (x == true)
 		{
+			
 			int row = 0;
 			int col = 0;
 			while (true)
@@ -27,7 +28,7 @@ int main()
 				while (1)
 				{
 					std::cout << "enter in row" << std::endl;
-					std::cin >> row;
+ 					std::cin >> row;
 					if (row <= 2)
 						break;
 					else
@@ -42,20 +43,21 @@ int main()
 					else
 						std::cout << "try again" << std::endl;
 				}
-				if (board[row][col] != 'X')
+				if (board[row][col] != 'X' && board[row][col] != 'O')
 				{
 					board[row][col] = { 'X' };
 					break;
 				}
-				if (board[row][col] == 'X')
+				else if (board[row][col] == 'X')
+				{
+					std::cout << "spot takening try again" << std::endl;
+				}
+				else if (board[row][col] == 'O')
 				{
 					std::cout << "spot takening try again" << std::endl;
 				}
 			}
 			
-
-			//make a while loop that has the if statements to place down the symbol and 
-			//break the loop if wrong as well when right but place the the symbol if right
 			char winner = 'X';
 
 			// Checks for horizontal:
@@ -75,7 +77,6 @@ int main()
 
 			std::cout << "Winner is " << winner << std::endl;
 			
-
 			x = false;
 			y = true;
 		}
@@ -105,12 +106,16 @@ int main()
 					else
 						std::cout << "try again" << std::endl;
 				}
-				if (board[row][col] != 'O')
+				if (board[row][col] != 'O' && board[row][col] != 'X')
 				{
 					board[row][col] = { 'O' };
 					break;
 				}
-				if (board[row][col] == 'O')
+				else if (board[row][col] == 'O')
+				{
+					std::cout << "spot takening try again" << std::endl;
+				}
+				else if (board[row][col] == 'X')
 				{
 					std::cout << "spot takening try again" << std::endl;
 				}
@@ -153,3 +158,5 @@ void Print_board(char board[3][3])
 	std::cout << "\n  " << board[2][0] << "  |  " << board[2][1] << "  |  " << board[2][2];
 	std::cout << "\n------------------\n";
 }
+
+
