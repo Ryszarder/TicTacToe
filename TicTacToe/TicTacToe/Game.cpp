@@ -190,6 +190,8 @@ void Print_board(char board[3][3])
 //Function that Check to see if the won
 char Winner(char board[3][3], char& winner)
 {
+	char Quit[64];
+
 	//Checks for horizontal:
 	for (int i = 0; i < 2; i++)
 		//Checks that the first value eqauls the second and the second equals the thrid
@@ -199,6 +201,9 @@ char Winner(char board[3][3], char& winner)
 			winner = board[i][0];
 			//Prints out the winner
 			std::cout << "Winner is " << winner << std::endl;
+			//Pauses the prgrom to read the winner
+			std::cout << "Press any key to Quit" << std::endl;
+			std::cin >> Quit;
 			//Quits the program
 			exit(0);
 		}
@@ -212,6 +217,9 @@ char Winner(char board[3][3], char& winner)
 			winner = board[0][1];
 			//Prints out the winner
 			std::cout << "Winner is " << winner << std::endl;
+			//Pauses the prgrom to read the winner
+			std::cout << "Press any key to Quit" << std::endl;
+			std::cin >> Quit;
 			//Quits the program
 			exit(0);
 		}
@@ -225,6 +233,9 @@ char Winner(char board[3][3], char& winner)
 		winner = board[1][1];
 		//Prints out the winner
 		std::cout << "Winner is " << winner << std::endl;
+		//Pauses the prgrom to read the winner
+		std::cout << "Press any key to Quit" << std::endl;
+		std::cin >> Quit;
 		//Quits the program
 		exit(0);
 	}
